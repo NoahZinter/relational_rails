@@ -1,1 +1,7 @@
 <h1> The Manufacturers of Cars </h1>
+
+<% @manufacturers.each do |manufacturer| %>
+<h3><%= manufacturer.name %></h3>
+<p>Production Capacity: <%= manufacturer.production_capacity %> </p>
+<p>Is it open? <%= manufacturer.is_open %> </p>
+<% end %> 
