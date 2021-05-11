@@ -1,0 +1,8 @@
+<h1>Dealerships</h1>
+
+<% @dealerships.each do |dealership| %>
+<h3><%= dealership.name%></h3>
+<p>Is it open? <%= dealership.is_open %></p>
+<p>Max car capacity: <%= dealership.max_car_capacity %></p>
+<p>Is it full? <%= dealership.is_full %></p>
+<% end %>
