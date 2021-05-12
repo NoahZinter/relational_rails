@@ -5,6 +5,7 @@ class CreateVehicles < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :sold
       t.integer :price
+      t.timestamps
     end
   end
 end
