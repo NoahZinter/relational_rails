@@ -1,0 +1,10 @@
+<h1>Employees</h1>
+
+<% @employees.each do |employee| %>
+<h3><a href="/employees/<%= employee.id %>"><%= employee.name %></a></h3>
+<p>Dealership id: <%= employee.dealership_id %></p>
+<p>Are they on vacation? <%= employee.on_vacation %></p>
+<p>Cars sold: <%= employee.cars_sold %></p>
+<p>Created at: <%= employee.created_at %></p>
+<p>Updated at: <%= employee.updated_at %></p>
+<% end %>
