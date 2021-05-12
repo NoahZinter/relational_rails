@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_010723) do
+ActiveRecord::Schema.define(version: 2021_05_12_141457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 2021_05_12_010723) do
     t.boolean "is_open"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.integer "manufacturer_id"
+    t.string "name"
+    t.boolean "sold"
+    t.integer "price"
   end
 
   add_foreign_key "employees", "dealerships"
