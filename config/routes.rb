@@ -5,4 +5,3 @@ Rails.application.routes.draw do
   get '/dealerships/:id', to: 'dealerships#show'
   get '/employees', to: 'employees#index'
 end
-
