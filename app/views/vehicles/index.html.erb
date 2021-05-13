@@ -1,5 +1,8 @@
 <h1>All Vehicles </h1>
 
 <% @vehicles.each do |vehicle| %>
-  <h3><a href="vehicles/<%= vehicle.id %>"><%= vehicle.name %></a></h3>
+<h3><a href="vehicles/<%= vehicle.id %>"><%= vehicle.name %></a></h3>
+  <p>Vehicle Year:<%= vehicle.year %></p>
+  <p>Vehicle Price:<%= vehicle.price %></p>
+  <p>Has it been sold?<%= vehicle.sold %></p>
   <% end %>
