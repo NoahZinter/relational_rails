@@ -1,7 +1,7 @@
 class DealershipsController < ApplicationController
 
   def index
-    @dealerships = Dealership.all
+    @dealerships = Dealership.order('created_at DESC').all
   end
 
   def show
