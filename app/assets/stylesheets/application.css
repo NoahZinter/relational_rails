@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ .timestamp {display:inline; font-size:12px;}
+  
+ .parent {display:inline; font-size:25px;}
+
  .topnav {
    background-color: #333;
    overflow: hidden;
@@ -36,3 +40,4 @@
   background-color: #04AA6D;
   color: white;
 }
+

@@ -1,7 +1,8 @@
 <h1> The Manufacturers of Vehicles </h1>
 
 <% @manufacturers.each do |manufacturer| %>
-<h3><a href='manufacturers/<%= manufacturer.id %>'> <%= manufacturer.name %></a></h3>
+  <h3 class="parent"><a href='manufacturers/<%= manufacturer.id %>'> <%= manufacturer.name %></a> </h3>
+  <p class="timestamp"> Created At: <%= manufacturer.created_at %> </p>
+  <br>
+  <br>
 <% end %>
-
-<a href='vehicles'>All Vehicles</a>
