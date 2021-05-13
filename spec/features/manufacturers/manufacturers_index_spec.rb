@@ -20,4 +20,13 @@ RSpec.describe "Manufacturer Index" do
    expect(page).to have_content(chevy.created_at)
    expect(page).to have_content(zonda.created_at)
   end
+
+  it 'orders manufacturers by time created' do
+   chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
+   zonda = Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
+
+   visit"/manufacturers"
+
+   expect(page.text.index(chevy.name)).to be > page.text.index(zonda.name)
+  end
 end
