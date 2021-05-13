@@ -20,4 +20,15 @@ RSpec.describe "Manufacturer Show" do
    expect(page).to have_content(chevy.production_capacity)
    expect(page).to have_content(chevy.is_open)
   end
+
+  it 'counts vehicles of selected manufacturer' do
+   chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
+   cruz = chevy.vehicles.create!(name:"Cruz", year:2000, price:2500, sold:false)
+   silverado = chevy.vehicles.create!(name:"Silverado", year:2005, price:4500, sold:true)
+
+   visit"/manufacturers/#{chevy.id}"
+
+   expect(page).to have_content(chevy.vehicle_count)
+   
+  end
 end
