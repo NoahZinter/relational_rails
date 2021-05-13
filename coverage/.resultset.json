@@ -285,24 +285,8 @@
           1,
           null
         ]
-      },
-      "/Users/nwz/2_mod/projects/relational_rails/app/controllers/manufacturer_vehicles_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/nwz/2_mod/projects/relational_rails/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1620915190
+    "timestamp": 1620932139
   }
 }
