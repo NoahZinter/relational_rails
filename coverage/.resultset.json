@@ -265,7 +265,7 @@
           null
         ]
       },
-      "/Users/nwz/2_mod/projects/relational_rails/app/models/manufacturer.rb": {
+      "/Users/nwz/2_mod/projects/relational_rails/app/models/vehicle.rb": {
         "lines": [
           1,
           1,
@@ -279,7 +279,7 @@
           null
         ]
       },
-      "/Users/nwz/2_mod/projects/relational_rails/app/models/vehicle.rb": {
+      "/Users/nwz/2_mod/projects/relational_rails/app/models/manufacturer.rb": {
         "lines": [
           1,
           1,
@@ -287,6 +287,6 @@
         ]
       }
     },
-    "timestamp": 1620932139
+    "timestamp": 1620932203
   }
 }
