@@ -1,2 +1,8 @@
 <h1>This Manufacturer's Vehicles </h1>
 
+<% @vehicles.each do |vehicle| %>
+<p>Vehicle name: <%= vehicle.name %></p>
+<p>Vehicle year: <%= vehicle.year %></p>
+<p>Vehicle price: $<%= vehicle.price %></p>
+<p> ----------------------- </p>
+<% end %>
