@@ -26,7 +26,7 @@ RSpec.describe "Manufacturer Show" do
     cruz = chevy.vehicles.create!(name:"Cruz", year:2000, price:2500, sold:false)
     silverado = chevy.vehicles.create!(name:"Silverado", year:2005, price:4500, sold:true)
 
-    visit"/manufacturers/#{chevy.id}"
+    visit "/manufacturers/#{chevy.id}"
 
     expect(page).to have_content(chevy.vehicle_count)
   end
