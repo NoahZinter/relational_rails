@@ -25,4 +25,8 @@ class DealershipsController < ApplicationController
                   :is_full
                  )
   end
+
+  def edit
+    
+  end
 end

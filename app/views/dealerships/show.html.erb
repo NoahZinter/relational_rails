@@ -6,4 +6,5 @@
 <p>Is it full? <%= @dealership.is_full %></p>
 <p>Created at: <%= @dealership.created_at %></p>
 <p>Updated at: <%= @dealership.updated_at %></p>
-<a href='/dealerships/<%= @dealership.id %>/employees'>All <%= @dealership.name %> Employees</a>
+<p><a href='/dealerships/<%= @dealership.id %>/employees'>All <%= @dealership.name %> Employees</a></p>
+<p><%= link_to "Update #{@dealership.name}", "/dealerships/#{@dealership.id}/edit", method: :get %></p>
