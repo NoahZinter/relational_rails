@@ -1,0 +1,12 @@
+<%= form_with url:'/dealerships', method: :post, local: true do |form| %>
+  <br>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :is_open %>
+  <%= form.text_field :is_open %>
+  <%= form.label :max_car_capacity %>
+  <%= form.text_field :max_car_capacity %>
+  <%= form.label :is_full %>
+  <%= form.text_field :is_full %>
+  <%= form.submit "Create Dealership" %>
+<% end %>
