@@ -13,5 +13,15 @@ RSpec.describe Manufacturer do
         expect(chevy.vehicle_count).to eq 2
       end
     end
+
+    describe '#order_by_created_at' do
+      it 'orders manufacturers by their creation times' do
+        chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
+        zonda = Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
+        ford = Manufacturer.create!(name:"Ford", production_capacity:50, is_open:true)
+
+        expect(Manufacturer.default_scope).to eq ([ford, zonda, chevy])
+      end
+    end
   end
 end
