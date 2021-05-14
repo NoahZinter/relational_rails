@@ -17,6 +17,17 @@ class DealershipsController < ApplicationController
     redirect_to "/dealerships"
   end
 
+  def edit
+    @dealership = Dealership.find(params[:id])
+  end
+
+  def update
+    dealership = Dealership.find(params[:id])
+    dealership.update(dealership_params)
+    redirect_to "/dealerships/#{dealership.id}"
+  end
+
+private
   def dealership_params
     params.permit(
                   :name,
@@ -24,9 +35,5 @@ class DealershipsController < ApplicationController
                   :max_car_capacity,
                   :is_full
                  )
-  end
-
-  def edit
-    
   end
 end
