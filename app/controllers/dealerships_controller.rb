@@ -13,11 +13,17 @@ class DealershipsController < ApplicationController
   end
 
   def create
-    dealership = Dealership.create(name: params[:name],
-                                   is_open: params[:is_open],
-                                   max_car_capacity: params[:max_car_capacity],
-                                   is_full: params[:is_full])
+    dealership = Dealership.create(dealership_params)
     redirect_to "/dealerships"
     # require 'pry'; binding.pry
+  end
+
+  def dealership_params
+    params.permit(
+                  :name,
+                  :is_open,
+                  :max_car_capacity,
+                  :is_full
+                 )
   end
 end
