@@ -15,7 +15,6 @@ class DealershipsController < ApplicationController
   def create
     dealership = Dealership.create(dealership_params)
     redirect_to "/dealerships"
-    # require 'pry'; binding.pry
   end
 
   def dealership_params
