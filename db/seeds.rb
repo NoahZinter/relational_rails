@@ -5,10 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Manufacturer.destroy_all
 Vehicle.destroy_all
-Dealership.destroy_all
+Manufacturer.destroy_all
 Employee.destroy_all
+Dealership.destroy_all
+
 
 honda = Manufacturer.create!(name:"Honda", production_capacity:200, is_open:true)
 ford = Manufacturer.create!(name:"Ford", production_capacity:300, is_open:false)
