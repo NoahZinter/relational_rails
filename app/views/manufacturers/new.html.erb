@@ -7,8 +7,8 @@
 <%= form.label :production_capacity%>
 <%= form.number_field :production_capacity%>
 <br>
-<%= form.label :is_open %>
-<%= form.check_box :is_open, {}, true, false %>
+<%= form.label :is_it_open? %>
+<%= form.select :sold, ['false', 'true'] %>
 <br>
 <%= form.submit "Create Manufacturer" %>
 <% end %>
