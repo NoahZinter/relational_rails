@@ -5,5 +5,6 @@ class ManufacturerVehiclesController < ApplicationController
   end
 
   def new
+    @manufacturer = Manufacturer.find(params[:id])
   end
 end

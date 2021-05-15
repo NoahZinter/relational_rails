@@ -17,6 +17,6 @@ RSpec.describe "Manufacturer Vehicles Index" do
 
     visit "/manufacturers/#{manufacturer.id}/vehicles"
 
-    expect(page).to have_button("Create New #{manufacturer.name} Vehicle:")
+    expect(page).to have_button("Create a New #{manufacturer.name} Vehicle:")
   end
   end
