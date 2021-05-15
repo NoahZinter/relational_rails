@@ -22,9 +22,17 @@ RSpec.describe 'Employee edit ' do
     click_button "Update #{chris.name}"
 
     fill_in 'Name', with: "Chris P. Bacon"
+      within("select#on_vacation") do
+        %w(true false).each do |option|
+          expect(find("option[value=#{option}]").text).to eq(option)
+        end
+      end
+      fill_in('cars_sold', with: 123)
     click_button 'Update Employee'
-
+      
     expect(current_path).to eq("/employees/#{chris.id}")
     expect(page).to have_content("Chris P. Bacon")
+    expect(page).to have_content(true)
+    expect(page).to have_content(123)
   end
 end
