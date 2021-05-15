@@ -6,7 +6,7 @@ RSpec.describe 'Dealership edit ' do
 
     visit "/dealerships/#{teds.id}"
 
-    click_link "Update #{teds.name}"
+    click_button "Update #{teds.name}"
 
     expect(current_path).to eq("/dealerships/#{teds.id}/edit")
   end
@@ -17,7 +17,7 @@ RSpec.describe 'Dealership edit ' do
     visit "/dealerships/#{teds.id}"
 
     expect(page).to have_content("Tad's Auto")
-    click_link "Update #{teds.name}"
+    click_button "Update #{teds.name}"
 
     fill_in 'Name', with: "Ted's Auto"
     click_button 'Update Dealership'
