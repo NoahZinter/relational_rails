@@ -2,10 +2,14 @@
   <br>
   <%= form.label :name %>
   <%= form.text_field :name %>
+  <br>
   <%= form.label :on_vacation %>
-  <%= form.text_field :on_vacation %>
+  <%= form.check_box :on_vacation, {}, true, false %>
+  <br>
   <%= form.label :cars_sold %>
-  <%= form.text_field :cars_sold %>
+  <%= form.number_field :cars_sold %>
+  <br>
+  <br>
   <%= form.hidden_field :dealership_id %>
   <%= form.submit "Create Employee"%>
 <% end %>
