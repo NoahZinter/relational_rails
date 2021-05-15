@@ -11,4 +11,12 @@ RSpec.describe "Manufacturer Vehicles Index" do
     expect(page).to have_content(car_1.name)
     expect(page).to have_content(car_2.name)
   end
-end
+
+  it 'contains a button to add new vehicle' do
+    manufacturer = Manufacturer.create!(name:"Zonda", production_capacity:40, is_open:true)
+
+    visit "/manufacturers/#{manufacturer.id}/vehicles"
+
+    expect(page).to have_button("Create New #{manufacturer.name} Vehicle:")
+  end
+  end
