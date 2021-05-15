@@ -1,0 +1,10 @@
+<%= form_with url: "/dealerships/#{Dealership.find(params[:id]).id}/employees", method: :post, local: true do |form| %>
+  <br>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :on_vacation %>
+  <%= form.text_field :on_vacation %>
+  <%= form.label :cars_sold %>
+  <%= form.text_field :cars_sold %>
+  <%= form.submit "Create Employee"%>
+<% end %>
