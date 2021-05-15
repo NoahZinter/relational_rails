@@ -6,3 +6,5 @@
 <p>Vehicle price: $<%= vehicle.price %></p>
 <p> ----------------------- </p>
 <% end %>
+
+<%= button_to "Create a New #{@manufacturer.name} Vehicle:", "/manufacturers/#{@manufacturer.id}/vehicles/new", method: :get %>
