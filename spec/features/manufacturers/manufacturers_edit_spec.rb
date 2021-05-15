@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Manufacturer Edit" do
   it 'displays a form for editing manufacturer' do
-   zonda = Manufacturer.create!(name:'Zonda', production_capacity:80, is_open:true)
+    zonda = Manufacturer.create!(name:'Zonda', production_capacity: 80, is_open: true)
 
     visit "/manufacturers/#{zonda.id}/edit"
 
@@ -10,13 +10,13 @@ RSpec.describe "Manufacturer Edit" do
     expect(page).to have_field("Production capacity")
     expect(page).to have_field("Is open")
   end
-  
+
   it 'updates the selected manufacturer' do
-    zonda = Manufacturer.create!(name:'Zonda', production_capacity:80, is_open:true)
+    zonda = Manufacturer.create!(name:'Zonda', production_capacity: 80, is_open: true)
 
     visit "/manufacturers/#{zonda.id}/edit"
 
-    fill_in('Name', with:'Terry')
+    fill_in('Name', with: 'Terry')
     fill_in('Production capacity', with: 89)
     check('Is open')
     click_button('Edit Manufacturer')
