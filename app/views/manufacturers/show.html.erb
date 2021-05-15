@@ -8,4 +8,4 @@
 <a href='/manufacturers/<%= @manufacturer.id %>/vehicles'>All <%= @manufacturer.name %> Vehicles:</a>
 <br>
 <br>
-<a href='manufacturers/<% @manufacturer.id %>/edit'>Edit Manufacturer <%=@manufacturer.name %>:</a>
+<%= button_to "Edit Manufacturer #{@manufacturer.name}:", "/manufacturers/#{@manufacturer.id}/edit", method: :get %>

@@ -46,9 +46,9 @@ RSpec.describe "Manufacturer Show" do
 
     visit"/manufacturers/#{chevy.id}"
 
-    expect(page).to have_content("Edit Manufacturer Chevy:")
+    expect(page).to have_button("Edit Manufacturer Chevy:")
 
-    click_button 'Edit Manufacturer Chevy:'
+    click_button "Edit Manufacturer #{chevy.name}:"
 
     expect(current_path).to eq("/manufacturers/#{chevy.id}/edit")
   end
