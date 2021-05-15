@@ -10,8 +10,8 @@
 <%= form.label :price %>
 <%= form.number_field :price %>
 <br>
-<%= form.label :has_it_been_sold_yet %>
-<%= form.check_box :has_it_been_sold_yet, {}, true, false %>
+<%= form.label :has_it_been_sold_yet? %>
+<%= form.select :sold, ['false', 'true'] %>
 <br>
 <%= form.submit "Create Vehicle" %>
 <% end %>
