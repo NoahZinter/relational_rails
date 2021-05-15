@@ -6,3 +6,6 @@
 <p>Updated At: <%= @manufacturer.updated_at %></p>
 <p>Total Vehicle Count: <%= @manufacturer.vehicle_count %></p>
 <a href='/manufacturers/<%= @manufacturer.id %>/vehicles'>All <%= @manufacturer.name %> Vehicles:</a>
+<br>
+<br>
+<%= button_to "Edit Manufacturer #{@manufacturer.name}:", "/manufacturers/#{@manufacturer.id}/edit", method: :get %>
