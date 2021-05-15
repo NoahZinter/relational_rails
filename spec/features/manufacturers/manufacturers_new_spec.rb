@@ -5,11 +5,11 @@ RSpec.describe 'Manufacturer New' do
     visit"/manufacturers/new"
 
     fill_in('Name', with:'Peugot')
-    fill_in('Production Capacity', with: 200)
-    fill_in('Is Open', with: true)
+    fill_in('Production capacity', with: 200)
+    check('Is open')
     click_button('Create Manufacturer')
 
-    expect(current_path).to eq('/manufacturers/index')
+    expect(current_path).to eq('/manufacturers')
     expect(page).to have_content('Peugot')
   end
 end

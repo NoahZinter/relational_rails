@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   get '/manufacturers/new', to: 'manufacturers#new'
+  post '/manufacturers', to: 'manufacturers#create'
   get '/manufacturers', to: 'manufacturers#index'
   get '/manufacturers/:id', to: 'manufacturers#show'
   get '/manufacturers/:id/vehicles', to: 'manufacturer_vehicles#index'
