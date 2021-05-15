@@ -8,5 +8,6 @@ class VehiclesController < ApplicationController
   end
 
   def edit
+    @vehicle = Vehicle.find(params[:id])
   end
 end
