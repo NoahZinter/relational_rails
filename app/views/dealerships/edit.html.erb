@@ -1,0 +1,17 @@
+<%= form_with url: "/dealerships/#{@dealership.id}", method: :patch, local: true do |form| %>
+  <br>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <%= form.label :is_open %>
+  <%= form.check_box :is_open, {}, true, false %>
+  <br>
+  <%= form.label :max_car_capacity %>
+  <%= form.number_field :max_car_capacity %>
+  <br>
+  <%= form.label :is_full %>
+  <%= form.check_box :is_full, {}, true, false %>
+  <br>
+  <br>
+  <%= form.submit 'Update Dealership' %>
+<% end %>

@@ -1,10 +1,10 @@
 <h2><%= @dealership.name %></h2>
-<p>Number of Employees: <%= @dealership.employees.count %></p>
+<p>Number of Employees: <%= @dealership.employee_count %></p>
 <p>Dealership id: <%= @dealership.id %></p>
 <p>Is it open? <%= @dealership.is_open %></p>
 <p>Max car capacity: <%= @dealership.max_car_capacity %></p>
 <p>Is it full? <%= @dealership.is_full %></p>
 <p>Created at: <%= @dealership.created_at %></p>
 <p>Updated at: <%= @dealership.updated_at %></p>
-<a href='/dealerships/<%= @dealership.id %>/employees'>All <%= @dealership.name %> Employees</a>
-
+<p><a href='/dealerships/<%= @dealership.id %>/employees'>All <%= @dealership.name %> Employees</a></p>
+<p><%= link_to "Update #{@dealership.name}", "/dealerships/#{@dealership.id}/edit", method: :get %></p>
