@@ -8,7 +8,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.find(params[:id])
   end
 
-  def create
-
+  def new
+    # binding.pry
   end
 end
