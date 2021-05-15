@@ -3,4 +3,8 @@ class DealershipsEmployeesController < ApplicationController
     dealership = Dealership.find(params[:id])
     @employees = dealership.employees
   end
+
+  def new
+    
+  end
 end
