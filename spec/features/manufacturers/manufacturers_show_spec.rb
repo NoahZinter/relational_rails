@@ -47,7 +47,12 @@ RSpec.describe "Manufacturer Show" do
     visit"/manufacturers/#{chevy.id}"
 
     expect(page).to have_button("Edit Manufacturer Chevy:")
+  end
 
+  it 'navigates to edit page when clicked' do
+    chevy = Manufacturer.create!(name: 'Chevy', production_capacity: 40, is_open: true)
+
+    visit"/manufacturers/#{chevy.id}"
     click_button "Edit Manufacturer #{chevy.name}:"
 
     expect(current_path).to eq("/manufacturers/#{chevy.id}/edit")
