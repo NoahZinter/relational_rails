@@ -21,5 +21,6 @@ class ManufacturersController < ApplicationController
   end
 
   def edit
+    @manufacturer = Manufacturer.find(params[:id])
   end
 end
