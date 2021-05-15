@@ -1,7 +1,7 @@
 class DealershipsEmployeesController < ApplicationController
   def index
-    dealership = Dealership.find(params[:id])
-    @employees = dealership.employees
+    @dealership = Dealership.find(params[:id])
+    @employees = @dealership.employees
   end
 
   def new
@@ -14,7 +14,7 @@ class DealershipsEmployeesController < ApplicationController
   end
 
   private
-  
+
   def employee_params
     params.permit(
                   :name,

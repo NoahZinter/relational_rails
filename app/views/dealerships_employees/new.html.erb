@@ -1,4 +1,4 @@
-<%= form_with url: "/dealerships/#{Dealership.find(params[:id]).id}/employees", method: :post, local: true do |form| %>
+<%= form_with url: "/dealerships/#{@dealership.id}/employees", method: :post, local: true do |form| %>
   <br>
   <%= form.label :name %>
   <%= form.text_field :name %>
