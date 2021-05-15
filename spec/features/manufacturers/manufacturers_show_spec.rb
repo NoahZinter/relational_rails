@@ -46,6 +46,10 @@ RSpec.describe "Manufacturer Show" do
 
     visit"/manufacturers/#{chevy.id}"
 
-    expect(page).to have_link('Update This Manufacturer:', :href => "/manufacturers/#{chevy.id}/edit")
+    expect(page).to have_content("Edit Manufacturer Chevy:")
+
+    click_button 'Edit Manufacturer Chevy:'
+
+    expect(current_path).to eq("/manufacturers/#{chevy.id}/edit")
   end
 end

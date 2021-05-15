@@ -15,4 +15,7 @@ class ManufacturersController < ApplicationController
     Manufacturer.create(name: params[:name], production_capacity: params[:production_capacity], is_open: params[:is_open])
     redirect_to '/manufacturers'
   end
+
+  def edit
+  end
 end
