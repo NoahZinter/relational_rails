@@ -5,7 +5,7 @@ class DealershipsEmployeesController < ApplicationController
   end
 
   def new
-
+    @dealership = Dealership.find(params[:id])
   end
 
   def create
