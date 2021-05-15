@@ -7,7 +7,7 @@ RSpec.describe 'Employee edit ' do
 
     visit "/employees/#{chris.id}"
 
-    click_link "Update #{chris.name}"
+    click_button "Update #{chris.name}"
 
     expect(current_path).to eq("/employees/#{chris.id}/edit")
   end
@@ -19,7 +19,7 @@ RSpec.describe 'Employee edit ' do
     visit "/employees/#{chris.id}"
 
     expect(page).to have_content("Chris P. acon")
-    click_link "Update #{chris.name}"
+    click_button "Update #{chris.name}"
 
     fill_in 'Name', with: "Chris P. Bacon"
     click_button 'Update Employee'
