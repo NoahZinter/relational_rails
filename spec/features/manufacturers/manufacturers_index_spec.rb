@@ -42,7 +42,7 @@ RSpec.describe "Manufacturer Index" do
    expect(page).to have_link("Create Manufacturer:", :href => "/manufacturers/new")
   end
 
-  xit 'contains a link to create a manufacturer' do
+  it 'contains a link to create a manufacturer' do
    chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
    zonda = Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
    ford = Manufacturer.create!(name:"Ford", production_capacity:50, is_open:true)

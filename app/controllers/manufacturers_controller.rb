@@ -9,6 +9,5 @@ class ManufacturersController < ApplicationController
   end
 
   def new
-    # binding.pry
   end
 end
