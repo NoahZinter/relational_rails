@@ -8,7 +8,12 @@ RSpec.describe "Manufacturer Edit" do
 
     expect(page).to have_field("Name")
     expect(page).to have_field("Production capacity")
-    expect(page).to have_field("Is open")
+
+      within("select#sold") do
+        %w(true false).each do |option|
+          expect(find("option[value=#{option}]").text).to eq(option)
+        end
+      end
   end
 
   it 'updates the selected manufacturer' do
@@ -18,7 +23,7 @@ RSpec.describe "Manufacturer Edit" do
 
     fill_in('Name', with: 'Terry')
     fill_in('Production capacity', with: 89)
-    check('Is open')
+    select('true')
     click_button('Edit Manufacturer')
 
     expect(current_path).to eq("/manufacturers/#{zonda.id}")
