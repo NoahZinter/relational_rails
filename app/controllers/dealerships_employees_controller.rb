@@ -14,6 +14,7 @@ class DealershipsEmployeesController < ApplicationController
   end
 
   private
+  
   def employee_params
     params.permit(
                   :name,

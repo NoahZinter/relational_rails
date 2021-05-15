@@ -28,6 +28,7 @@ class DealershipsController < ApplicationController
   end
 
 private
+
   def dealership_params
     params.permit(
                   :name,
