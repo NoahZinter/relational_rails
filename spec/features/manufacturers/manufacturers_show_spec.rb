@@ -41,5 +41,11 @@ RSpec.describe "Manufacturer Show" do
     expect(page).to have_link("All Chevy Vehicles:", :href => "/manufacturers/#{chevy.id}/vehicles")
   end
 
+  it 'includes a link to update the manufacturer' do
+    chevy = Manufacturer.create!(name: 'Chevy', production_capacity: 40, is_open: true)
 
+    visit"/manufacturers/#{chevy.id}"
+
+    expect(page).to have_link('Update This Manufacturer:', :href => "/manufacturers/#{chevy.id}/edit")
+  end
 end
