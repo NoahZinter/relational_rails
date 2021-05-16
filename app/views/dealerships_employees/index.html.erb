@@ -8,3 +8,6 @@
 <% end %>
 
 <%= link_to "Create Employee", "/dealerships/#{@dealership.id}/employees/new" %>
+<br>
+<br>
+<%= button_to "Alphabetize #{@dealership.name}'s' Employees", "/dealerships/#{@dealership.id}/employees", method: :get, params: { alphabetize: true}%>

@@ -8,4 +8,8 @@ class Dealership < ApplicationRecord
   def self.default_scope
     order("created_at DESC")
   end
+
+  def alphabetize
+    employees.order(:name)
+  end
 end
