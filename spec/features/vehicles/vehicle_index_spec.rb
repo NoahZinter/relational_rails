@@ -23,7 +23,7 @@ RSpec.describe "Vehicle Index" do
     civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
     crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
 
-   visit"/vehicles"
+   visit '/vehicles'
 
    expect(page).to have_content(civic.name)
    expect(page).to have_content(civic.year)
@@ -33,5 +33,20 @@ RSpec.describe "Vehicle Index" do
    expect(page).not_to have_content(crv.year)
    expect(page).not_to have_content(crv.price)
    expect(page).not_to have_content(crv.sold)
+  end
+
+  it 'can handle any order of sold vehicles' do
+    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+    civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)
+    crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
+    accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
+    del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: true)
+
+    visit '/vehicles'
+
+    expect(page).not_to have_content(civic.name)
+    expect(page).not_to have_content(crv.name)
+    expect(page).to have_content(accord.name)
+    expect(page).not_to have_content(del_sol.name)
   end
 end
