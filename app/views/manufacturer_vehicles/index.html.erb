@@ -4,6 +4,8 @@
 <p>Vehicle name: <%= vehicle.name %></p>
 <p>Vehicle year: <%= vehicle.year %></p>
 <p>Vehicle price: $<%= vehicle.price %></p>
+<p> <%= button_to "Edit This #{vehicle.name}",
+  "/vehicles/#{vehicle.id}/edit", method: :get %></h3> </p>
 <p> ----------------------- </p>
 <% end %>
 

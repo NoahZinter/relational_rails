@@ -41,4 +41,19 @@ RSpec.describe 'Manufacturer Vehicles Index' do
     click_button 'Alphabetize Honda Vehicles'
     expect(accord.name).to appear_before(del_sol.name)
   end
+
+  it 'has a link to edit each vehicle' do
+    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+    honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
+    honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: false)
+    honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: false)
+    honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
+
+    visit "/manufacturers/#{honda.id}/vehicles"
+
+    expect(page).to have_button('Edit This Civic')
+    expect(page).to have_button('Edit This Del Sol')
+    expect(page).to have_button('Edit This CRV')
+    expect(page).to have_button('Edit This Accord')
+  end
 end
