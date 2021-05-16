@@ -23,5 +23,20 @@ RSpec.describe Manufacturer do
         expect(Manufacturer.default_scope).to eq ([ford, zonda, chevy])
       end
     end
+
+    describe '#alphabetize' do
+      it 'orders vehicles by name' do
+        honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+        civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)
+        crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
+        accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
+        del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: true)
+
+        alphabetized = honda.alphabetize
+
+        expect(alphabetized.first.name).to eq 'Accord'
+        expect(alphabetized.last.name).to eq "Del Sol"
+      end
+    end
   end
 end
