@@ -2,10 +2,10 @@
 
 <% @vehicles.each do |vehicle| %>
 <% next if vehicle.sold == true %>
-<h3><a href="vehicles/<%= vehicle.id %>"><%= vehicle.name %></a>
-  <%= button_to "Edit This #{vehicle.name}",
-  "/vehicles/#{vehicle.id}/edit", method: :get %></h3>
+<h3><a href="vehicles/<%= vehicle.id %>"><%= vehicle.name %></a></h3>
 <p>Vehicle Year:<%= vehicle.year %></p>
 <p>Vehicle Price:<%= vehicle.price %></p>
 <p>Has it been sold? <%= vehicle.sold %></p>
+<p> <%= button_to "Edit This #{vehicle.name}",
+  "/vehicles/#{vehicle.id}/edit", method: :get %>
 <% end %>
