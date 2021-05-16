@@ -8,14 +8,14 @@ RSpec.describe "Vehicle Index" do
 
    visit"/vehicles"
 
-   expect(page).to have_content(civic.name)
-   expect(page).to have_content(civic.year)
-   expect(page).to have_content(civic.price)
-   expect(page).to have_content(civic.sold)
-   expect(page).to have_content(crv.name)
-   expect(page).to have_content(crv.year)
-   expect(page).to have_content(crv.price)
-   expect(page).to have_content(crv.sold)
+    expect(page).to have_content(civic.name)
+    expect(page).to have_content(civic.year)
+    expect(page).to have_content(civic.price)
+    expect(page).to have_content(civic.sold)
+    expect(page).to have_content(crv.name)
+    expect(page).to have_content(crv.year)
+    expect(page).to have_content(crv.price)
+    expect(page).to have_content(crv.sold)
   end
 
   it 'only shows vehicles which arent sold' do
@@ -23,16 +23,16 @@ RSpec.describe "Vehicle Index" do
     civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
     crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
 
-   visit '/vehicles'
+    visit '/vehicles'
 
-   expect(page).to have_content(civic.name)
-   expect(page).to have_content(civic.year)
-   expect(page).to have_content(civic.price)
-   expect(page).to have_content(civic.sold)
-   expect(page).not_to have_content(crv.name)
-   expect(page).not_to have_content(crv.year)
-   expect(page).not_to have_content(crv.price)
-   expect(page).not_to have_content(crv.sold)
+    expect(page).to have_content(civic.name)
+    expect(page).to have_content(civic.year)
+    expect(page).to have_content(civic.price)
+    expect(page).to have_content(civic.sold)
+    expect(page).not_to have_content(crv.name)
+    expect(page).not_to have_content(crv.year)
+    expect(page).not_to have_content(crv.price)
+    expect(page).not_to have_content(crv.sold)
   end
 
   it 'can handle any order of sold vehicles' do
