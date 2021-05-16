@@ -6,7 +6,7 @@ RSpec.describe 'Dealership edit ' do
 
     visit "/dealerships/#{teds.id}"
 
-    click_link "Update #{teds.name}"
+    click_button "Update #{teds.name}"
 
     expect(current_path).to eq("/dealerships/#{teds.id}/edit")
   end
@@ -17,12 +17,26 @@ RSpec.describe 'Dealership edit ' do
     visit "/dealerships/#{teds.id}"
 
     expect(page).to have_content("Tad's Auto")
-    click_link "Update #{teds.name}"
+    click_button "Update #{teds.name}"
 
-    fill_in 'Name', with: "Ted's Auto"
+    fill_in('Name', with: "Ted's Auto")
+    within("select#is_open") do
+      %w(true false).each do |option|
+        expect(find("option[value=#{option}]").text).to eq(option)
+      end
+    end
+    fill_in('max_car_capacity', with: 654)
+    within("select#is_full") do
+      %w(true false).each do |option|
+        expect(find("option[value=#{option}]").text).to eq(option)
+      end
+    end
+
     click_button 'Update Dealership'
 
     expect(current_path).to eq("/dealerships/#{teds.id}")
-    expect(page).to have_content("Ted's")
+    expect(page).to have_content("Ted's Auto")
+    expect(page).to have_content("true")
+    expect(page).to have_content("654")
   end
 end
