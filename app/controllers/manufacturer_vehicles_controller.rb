@@ -17,7 +17,8 @@ class ManufacturerVehiclesController < ApplicationController
     redirect_to "/manufacturers/#{@manufacturer.id}/vehicles"
   end
 
-private
+  private
+
   def vehicle_params
     params.permit(:name, :year, :price, :sold)
   end

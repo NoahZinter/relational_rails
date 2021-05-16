@@ -30,9 +30,9 @@ RSpec.describe 'Manufacturer Vehicles Index' do
 
   it 'alphabetizes vehicles' do
     honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
-    civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
+    honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
     del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: false)
-    crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: false)
+    honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: false)
     accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
 
     visit "/manufacturers/#{honda.id}/vehicles"
