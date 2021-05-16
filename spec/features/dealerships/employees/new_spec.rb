@@ -19,14 +19,14 @@ RSpec.describe 'New Dealership Child' do
 
       fill_in('name', with: "Chris P. Bacon")
       within("select#on_vacation") do
-        %w(true false).each do |option|
+        %w(true).each do |option|
           expect(find("option[value=#{option}]").text).to eq(option)
         end
       end
       fill_in('cars_sold', with: 123)
 
       click_button 'Create Employee'
-      
+
       expect(current_path).to eq("/dealerships/#{teds.id}/employees")
       expect(page).to have_content("Chris P. Bacon")
       expect(page).to have_content(true)

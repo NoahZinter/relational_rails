@@ -15,7 +15,7 @@ RSpec.describe 'New Dealership' do
 
     fill_in('name', with: "Bob's Auto")
     within("select#is_open") do
-      %w(true false).each do |option|
+      %w(false true).each do |option|
         expect(find("option[value=#{option}]").text).to eq(option)
       end
     end
