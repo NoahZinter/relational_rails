@@ -24,7 +24,7 @@ RSpec.describe Manufacturer do
       end
     end
 
-    describe '#alphabetize' do
+    describe '.alphabetize' do
       it 'orders vehicles by name' do
         honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
         civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)

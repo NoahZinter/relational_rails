@@ -28,7 +28,7 @@ RSpec.describe 'Manufacturer Vehicles Index' do
     expect(page).to have_button("Alphabetize Zonda Vehicles")
   end
 
-  xit 'alphabetizes vehicles' do
+  it 'alphabetizes vehicles' do
     honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
     civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
     del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: false)
@@ -38,7 +38,7 @@ RSpec.describe 'Manufacturer Vehicles Index' do
     visit "/manufacturers/#{honda.id}/vehicles"
 
     expect(del_sol.name).to appear_before(accord.name)
-
+    click_button 'Alphabetize Honda Vehicles'
     expect(accord.name).to appear_before(del_sol.name)
   end
 end

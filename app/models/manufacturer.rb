@@ -10,6 +10,6 @@ class Manufacturer < ApplicationRecord
   end
 
   def alphabetize
-    Vehicle.order(:name)
+    vehicles.order(:name)
   end
 end
