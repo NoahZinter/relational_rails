@@ -15,4 +15,34 @@ RSpec.describe 'Dealerships Employees index' do
     expect(page).to have_content(john.name)
     expect(page).to have_content(sally.name)
   end
+
+  it 'has a button to add a new employee' do
+    dealership = Dealership.create!(name: 'Test Dealership')
+
+    visit "/dealerships/#{dealership.id}/employees"
+
+    expect(page).to have_button("Create Employee")
+  end
+
+  it 'has a button to add alphabetize employees' do
+    dealership = Dealership.create!(name: 'Test Dealership')
+
+    visit "/dealerships/#{dealership.id}/employees"
+
+    expect(page).to have_button("Alphabetize #{dealership.name}'s Employees")
+  end
+
+  it 'can alphabetize employees' do
+    dealership = Dealership.create!(name: 'Test Dealership')
+    sally = dealership.employees.create!(name: "Sally Jones",
+                                         on_vacation: true,
+                                         cars_sold: 17)
+    john = dealership.employees.create!(name: "John Smith",
+                                        on_vacation: false,
+                                        cars_sold: 27)
+    visit "/dealerships/#{dealership.id}/employees"
+
+    expect(sally.name).to appear_before(john.name)
+    click_button "Aphabetize Test Dealership's Employees"
+    expect(john.name).to appear_before(sally.name)  end
 end
