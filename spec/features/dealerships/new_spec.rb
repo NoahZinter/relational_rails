@@ -10,7 +10,7 @@ RSpec.describe 'New Dealership' do
     end
   end
 
-  xit 'can create a new dealership' do
+  it 'can create a new dealership' do
     visit '/dealerships/new'
 
     fill_in('name', with: "Bob's Auto")

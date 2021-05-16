@@ -11,7 +11,7 @@ RSpec.describe 'Dealership edit ' do
     expect(current_path).to eq("/dealerships/#{teds.id}/edit")
   end
 
-  xit 'can edit the dealership' do
+  it 'can edit the dealership' do
     teds = Dealership.create!(name:"Tad's Auto", is_open: true, max_car_capacity: 540, is_full: false)
 
     visit "/dealerships/#{teds.id}"
