@@ -8,4 +8,8 @@ class Manufacturer < ApplicationRecord
   def self.default_scope
     order("created_at DESC")
   end
+
+  def alphabetize
+    vehicles.order(:name)
+  end
 end

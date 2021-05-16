@@ -8,3 +8,4 @@
 <% end %>
 
 <%= button_to "Create a New #{@manufacturer.name} Vehicle:", "/manufacturers/#{@manufacturer.id}/vehicles/new", method: :get %>
+<%= button_to "Alphabetize #{@manufacturer.name} Vehicles", "/manufacturers/#{@manufacturer.id}/vehicles", method: :get, params: { alphabetize: true} %>
