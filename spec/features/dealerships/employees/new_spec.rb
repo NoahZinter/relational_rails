@@ -7,8 +7,8 @@ RSpec.describe 'New Dealership Child' do
 
       visit "/dealerships/#{teds.id}/employees"
 
-      click_link "Create Employee"
-
+      click_button "Create Employee"
+      
       expect(current_path).to eq("/dealerships/#{teds.id}/employees/new")
     end
 

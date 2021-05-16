@@ -43,6 +43,7 @@ RSpec.describe 'Dealerships Employees index' do
     visit "/dealerships/#{dealership.id}/employees"
 
     expect(sally.name).to appear_before(john.name)
-    click_button "Aphabetize Test Dealership's Employees"
-    expect(john.name).to appear_before(sally.name)  end
+    click_button "Alphabetize Test Dealership's Employees"
+    expect(john.name).to appear_before(sally.name)
+  end
 end
