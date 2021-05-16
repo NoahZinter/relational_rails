@@ -9,7 +9,7 @@ RSpec.describe "Manufacturer Edit" do
     expect(page).to have_field("Name")
     expect(page).to have_field("Production capacity")
 
-      within("select#sold") do
+      within("select#is_open") do
         %w(true false).each do |option|
           expect(find("option[value=#{option}]").text).to eq(option)
         end

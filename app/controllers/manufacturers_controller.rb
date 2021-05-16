@@ -25,8 +25,8 @@ class ManufacturersController < ApplicationController
   end
 
   def update
-    manufacturer = Manufacturer.find(params[:id])
-    manufacturer.update(manufacturer_params)
-    redirect_to "/manufacturers/#{manufacturer.id}"
+    @manufacturer = Manufacturer.find(params[:id])
+    @manufacturer.update(manufacturer_params)
+    redirect_to "/manufacturers/#{@manufacturer.id}"
   end
 end

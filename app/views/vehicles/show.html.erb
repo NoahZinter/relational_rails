@@ -5,3 +5,5 @@
 <p>Has it been sold yet? <%= @vehicle.sold %></p>
 <p>Created At: <%= @vehicle.created_at %></p>
 <p>Updated At: <%= @vehicle.updated_at %></p>
+
+<%= button_to "Edit This #{@vehicle.name}", "/vehicles/#{@vehicle.id}/edit", method: :get %>

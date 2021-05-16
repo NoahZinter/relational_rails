@@ -1,0 +1,17 @@
+<h3> Edit This Vehicle </h3>
+
+<%= form_with url:"/vehicles/#{@vehicle.id}", method: :patch, local: true do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+<br>
+<%= form.label :year %>
+<%= form.number_field :year %>
+<br>
+<%= form.label :price %>
+<%= form.number_field :price %>
+<br>
+<%= form.label :has_it_been_sold_yet? %>
+<%= form.select :sold, ['false', 'true'] %>
+<br>
+<%= form.submit "Edit Vehicle" %>
+<% end %>
