@@ -20,23 +20,18 @@ RSpec.describe 'Dealership edit ' do
     click_button "Update #{teds.name}"
 
     fill_in('Name', with: "Ted's Auto")
-    within("select#is_open") do
-      %w(true false).each do |option|
-        expect(find("option[value=#{option}]").text).to eq(option)
-      end
-    end
     fill_in('max_car_capacity', with: 654)
     within("select#is_full") do
-      %w(true false).each do |option|
+      %w(false true).each do |option|
         expect(find("option[value=#{option}]").text).to eq(option)
       end
     end
 
     click_button 'Update Dealership'
-
+    # save_and_open_page
     expect(current_path).to eq("/dealerships/#{teds.id}")
     expect(page).to have_content("Ted's Auto")
-    expect(page).to have_content("true")
+    expect(page).to have_content(true)
     expect(page).to have_content("654")
   end
 end

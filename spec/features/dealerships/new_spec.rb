@@ -14,11 +14,6 @@ RSpec.describe 'New Dealership' do
     visit '/dealerships/new'
 
     fill_in('name', with: "Bob's Auto")
-    within("select#is_open") do
-      %w(true false).each do |option|
-        expect(find("option[value=#{option}]").text).to eq(option)
-      end
-    end
     fill_in('max_car_capacity', with: 654)
     within("select#is_full") do
       %w(true false).each do |option|
