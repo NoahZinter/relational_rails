@@ -5,6 +5,7 @@
   <p>Cars sold: <%= employee.cars_sold %></p>
   <p>Created at: <%= employee.created_at %></p>
   <p>Updated at: <%= employee.updated_at %></p>
+  <p><%= button_to "Update #{employee.name}", "/employees/#{employee.id}/edit", method: :get %></p>
 <% end %>
 
 <%= button_to "Create Employee", "/dealerships/#{@dealership.id}/employees/new", method: :get %>
