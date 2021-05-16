@@ -48,4 +48,16 @@ RSpec.describe "Manufacturer Index" do
 
     expect(page).to have_current_path('/manufacturers/new')
   end
+
+  it 'contains a link next to each manufacturer to edit' do
+    chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
+    zonda = Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
+    ford = Manufacturer.create!(name:"Ford", production_capacity:50, is_open:true)
+
+    visit"/manufacturers"
+
+    expect(page).to have_button('Edit Manufacturer Chevy')
+    expect(page).to have_button('Edit Manufacturer Zonda')
+    expect(page).to have_button('Edit Manufacturer Ford')
+  end
 end
