@@ -5,9 +5,17 @@
 <p>Vehicle year: <%= vehicle.year %></p>
 <p>Vehicle price: $<%= vehicle.price %></p>
 <p> <%= button_to "Edit This #{vehicle.name}",
-  "/vehicles/#{vehicle.id}/edit", method: :get %></h3> </p>
+  "/vehicles/#{vehicle.id}/edit", method: :get %></h3>
+</p>
 <p> ----------------------- </p>
 <% end %>
 
 <%= button_to "Create a New #{@manufacturer.name} Vehicle:", "/manufacturers/#{@manufacturer.id}/vehicles/new", method: :get %>
 <%= button_to "Alphabetize #{@manufacturer.name} Vehicles", "/manufacturers/#{@manufacturer.id}/vehicles", method: :get, params: { alphabetize: true} %>
+
+<%= form_with url: "/manufacturers/#{@manufacturer.id}/vehicles", method: :get, local: true do |form| %>
+<%= form.label :find_cars_under_price, 'Find Cars Under Price' %>
+<%= form.number_field :find_cars_under_price %>
+<br>
+<%= form.submit "Find Cars Under Price"  %>
+<% end %>

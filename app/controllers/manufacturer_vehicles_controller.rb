@@ -5,6 +5,10 @@ class ManufacturerVehiclesController < ApplicationController
     if params[:alphabetize]
       @vehicles = @manufacturer.alphabetize
     end
+    if params[:find_cars_under_price]
+      limit = params[:find_cars_under_price].to_i
+      @vehicles = @manufacturer.under_price(limit)
+    end
   end
 
   def new

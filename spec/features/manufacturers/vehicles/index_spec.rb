@@ -56,4 +56,12 @@ RSpec.describe 'Manufacturer Vehicles Index' do
     expect(page).to have_button('Edit This CRV')
     expect(page).to have_button('Edit This Accord')
   end
+
+  it 'has a form to filter vehicles by price' do
+    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+
+    visit "/manufacturers/#{honda.id}/vehicles"
+
+    expect(page).to have_field('Find Cars Under Price')
+  end
 end
