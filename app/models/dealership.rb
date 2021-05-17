@@ -1,5 +1,5 @@
 class Dealership < ApplicationRecord
-  has_many :employees
+  has_many :employees, dependent: :destroy
 
   def employee_count
     employees.count

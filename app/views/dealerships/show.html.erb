@@ -8,3 +8,4 @@
 <p>Updated at: <%= @dealership.updated_at %></p>
 <p><a href='/dealerships/<%= @dealership.id %>/employees'>All <%= @dealership.name %> Employees</a></p>
 <p><%= button_to "Update #{@dealership.name}", "/dealerships/#{@dealership.id}/edit", method: :get %></p>
+<p><%= button_to "Delete #{@dealership.name}", "/dealerships/#{@dealership.id}", method: :delete %></p>

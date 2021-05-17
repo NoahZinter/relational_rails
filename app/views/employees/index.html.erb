@@ -8,4 +8,5 @@
 <p>Created at: <%= employee.created_at %></p>
 <p>Updated at: <%= employee.updated_at %></p>
 <p><%= button_to "Update #{employee.name}", "/employees/#{employee.id}/edit", method: :get %></p>
+<p><%= button_to "Delete #{employee.name}", "/employees/#{employee.id}", method: :delete %></p>
 <% end %>
