@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   patch '/manufacturers/:id', to: 'manufacturers#update'
   delete '/manufacturers/:id', to: 'manufacturers#destroy'
 
-  get '/manufacturers/:manufacturer_id/vehicles', to: 'manufacturer_vehicles#index'
-  get '/manufacturers/:manufacturer_id/vehicles/new', to: 'manufacturer_vehicles#new'
-  post '/manufacturers/:manufacturer_id/vehicles', to: 'manufacturer_vehicles#create'
+  get '/manufacturers/:id/vehicles', to: 'manufacturer_vehicles#index'
+  get '/manufacturers/:id/vehicles/new', to: 'manufacturer_vehicles#new'
+  post '/manufacturers/:id/vehicles', to: 'manufacturer_vehicles#create'
 
   get '/vehicles', to: 'vehicles#index'
   get '/vehicles/:id', to: 'vehicles#show'
