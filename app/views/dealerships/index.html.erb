@@ -4,7 +4,6 @@
 <h3 class="parent"><a href='dealerships/<%= dealership.id %>'> <%= dealership.name %></a> </h3>
   <p class="timestamp"> Created At: <%= dealership.created_at %> </p>
   <p><%= button_to "Update #{dealership.name}", "/dealerships/#{dealership.id}/edit", method: :get %></p>
-  <p><%= button_to "Delete #{dealership.name}", "/dealerships/#{dealership.id}", method: :delete %></p>
 <% end %>
 
 <%= link_to "New Dealership", "/dealerships/new" %>
