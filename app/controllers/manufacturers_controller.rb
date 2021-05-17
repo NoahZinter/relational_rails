@@ -29,4 +29,10 @@ class ManufacturersController < ApplicationController
     @manufacturer.update(manufacturer_params)
     redirect_to "/manufacturers/#{@manufacturer.id}"
   end
+
+  def destroy
+    manufacturer = Manufacturer.find(params[:id])
+    manufacturer.destroy
+    redirect_to '/manufacturers'
+  end
 end
