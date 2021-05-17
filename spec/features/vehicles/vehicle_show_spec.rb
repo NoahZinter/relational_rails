@@ -36,4 +36,13 @@ RSpec.describe "Vehicle Index" do
 
     expect(current_path).to eq("/vehicles/#{civic.id}/edit")
   end
+
+  it 'displays a button to delete the vehicle' do
+    honda = Manufacturer.create!(name:'Honda', production_capacity: 28, is_open:true)
+    civic = honda.vehicles.create!(name:'Civic', year:2000, price:2500, sold:false)
+
+    visit "/vehicles/#{civic.id}"
+
+    expect(page).to have_button('Delete This Civic')
+  end
 end
