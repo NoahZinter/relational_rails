@@ -86,7 +86,7 @@ RSpec.describe 'Dealerships Employees index' do
                                         cars_sold: 27)
     visit "/dealerships/#{dealership.id}/employees"
 
-    fill_in 'Number of Cars Sold', with 100
+    fill_in 'Number of Cars Sold', with: 100
     click_button 'See Results'
 
     expect(current_path).to eq("/dealerships/#{dealership.id}/employees")
