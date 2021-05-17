@@ -3,8 +3,7 @@
 <% @dealerships.each do |dealership| %>
 <h3 class="parent"><a href='dealerships/<%= dealership.id %>'> <%= dealership.name %></a> </h3>
   <p class="timestamp"> Created At: <%= dealership.created_at %> </p>
-  <br>
-  <br>
+  <p><%= button_to "Update #{dealership.name}", "/dealerships/#{dealership.id}/edit", method: :get %></p>
 <% end %>
 
 <%= link_to "New Dealership", "/dealerships/new" %>

@@ -22,8 +22,37 @@ RSpec.describe "Employee Index" do
     billy = teds.employees.create!(name:"Billy Maizear", cars_sold:2540, on_vacation: false)
 
     visit"/employees"
-    
+
     expect(page).not_to have_content(rex.name)
     expect(page).to have_content(billy.name)
+  end
+
+  it 'has an update button for each employee' do
+    dealership = Dealership.create!(name: 'Test Dealership')
+    sally = dealership.employees.create!(name: "Sally Jones",
+                                         on_vacation: false,
+                                         cars_sold: 17)
+    john = dealership.employees.create!(name: "John Smith",
+                                        on_vacation: false,
+                                        cars_sold: 27)
+    visit "/employees"
+    
+    expect(page).to have_button("Update #{john.name}")
+    expect(page).to have_button("Update #{sally.name}")
+  end
+
+  it 'redirects to and employee update page' do
+    dealership = Dealership.create!(name: 'Test Dealership')
+    sally = dealership.employees.create!(name: "Sally Jones",
+                                         on_vacation: true,
+                                         cars_sold: 17)
+    john = dealership.employees.create!(name: "John Smith",
+                                        on_vacation: false,
+                                        cars_sold: 27)
+    visit "/employees"
+
+    click_button "Update #{john.name}"
+
+    expect(page).to have_current_path("/employees/#{john.id}/edit")
   end
 end
