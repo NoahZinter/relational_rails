@@ -20,4 +20,10 @@ class VehiclesController < ApplicationController
     @vehicle.update(vehicle_params)
     redirect_to "/vehicles/#{@vehicle.id}"
   end
+
+  def destroy
+    vehicle = Vehicle.find(params[:id])
+    vehicle.destroy
+    redirect_to '/vehicles'
+  end
 end
