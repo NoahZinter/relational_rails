@@ -1,5 +1,5 @@
 class Manufacturer < ApplicationRecord
-  has_many :vehicles
+  has_many :vehicles, dependent: :destroy
 
   def vehicle_count
     vehicles.count

@@ -74,13 +74,28 @@ RSpec.describe "Manufacturer Index" do
   end
 
   it 'clicking delete deletes manufacturer' do
-    chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
-    zonda = Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
-    ford = Manufacturer.create!(name:"Ford", production_capacity:50, is_open:true)
+    Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
+    Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
+    Manufacturer.create!(name:"Ford", production_capacity:50, is_open:true)
 
     visit "/manufacturers"
     click_button('Delete Manufacturer Chevy')
-    save_and_open_page
+
+    expect(page).not_to have_content('Chevy')
+    expect(page).to have_content('Zonda')
+    expect(page).to have_content('Ford')
+  end
+
+  it 'clicking delete deletes manufacturer vehicles' do
+    chevy = Manufacturer.create!(name:"Chevy", production_capacity:40, is_open:true)
+    chevy.vehicles.create!(name:'Scooper', year:1990, price:1900, sold: false)
+    chevy.vehicles.create!(name:'S 10', year:1995, price:1700, sold: false)
+    Manufacturer.create!(name:"Zonda", production_capacity:80, is_open:true)
+    Manufacturer.create!(name:"Ford", production_capacity:50, is_open:true)
+
+    visit "/manufacturers"
+    click_button('Delete Manufacturer Chevy')
+
     expect(page).not_to have_content('Chevy')
     expect(page).to have_content('Zonda')
     expect(page).to have_content('Ford')
