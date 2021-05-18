@@ -1,3 +1,10 @@
+<br>
+<%= form_with url: "/dealerships/#{@dealership.id}/employees", method: :get, local: true do |form| %>
+  <%= form.label :minimum_cars_sold %>
+  <%= number_field_tag :min_cars_sold%>
+  <%= form.submit 'See Results' %>
+<% end %>
+
 <% @employees.each do |employee|%>
   <h2><%= employee.name %></h2>
   <p>Dealership id: <%= employee.dealership_id %></p>

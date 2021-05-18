@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all.where(on_vacation: false)
+    @employees = Employee.where(on_vacation: false)
   end
 
   def show
