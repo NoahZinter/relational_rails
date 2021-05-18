@@ -5,6 +5,10 @@ class DealershipsEmployeesController < ApplicationController
     if params[:alphabetize]
       @employees = @dealership.alphabetize
     end
+    if params[:min_cars_sold]
+      min = params[:min_cars_sold]
+      @employees = @dealership.min_cars_sold(min)
+    end
   end
 
   def new
