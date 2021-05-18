@@ -20,9 +20,9 @@ class ManufacturerVehiclesController < ApplicationController
   end
 
   def create
-    @manufacturer = Manufacturer.find(params[:id])
-    @manufacturer.vehicles.create!(vehicle_params)
-    redirect_to "/manufacturers/#{@manufacturer.id}/vehicles"
+    manufacturer = Manufacturer.find(params[:id])
+    manufacturer.vehicles.create!(vehicle_params)
+    redirect_to "/manufacturers/#{manufacturer.id}/vehicles"
   end
 
   private
