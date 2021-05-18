@@ -75,6 +75,7 @@ RSpec.describe 'Manufacturer Vehicles Index' do
 
     visit "/manufacturers/#{honda.id}/vehicles"
     fill_in 'Find Cars Under Price', with: 3000
+    click_button 'Find Cars Under Price'
 
     expect(page).not_to have_content('Del Sol')
     expect(page).not_to have_content('CRV')
@@ -91,6 +92,7 @@ RSpec.describe 'Manufacturer Vehicles Index' do
 
     visit "/manufacturers/#{honda.id}/vehicles"
     fill_in 'Find Cars Over Price', with: 3000
+    click_button 'Find Cars Over Price'
 
     expect(page).to have_content('Del Sol')
     expect(page).to have_content('CRV')
