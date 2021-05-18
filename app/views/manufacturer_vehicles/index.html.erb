@@ -11,11 +11,21 @@
 <% end %>
 
 <%= button_to "Create a New #{@manufacturer.name} Vehicle:", "/manufacturers/#{@manufacturer.id}/vehicles/new", method: :get %>
+<br>
 <%= button_to "Alphabetize #{@manufacturer.name} Vehicles", "/manufacturers/#{@manufacturer.id}/vehicles", method: :get, params: { alphabetize: true} %>
-
+<br>
 <%= form_with url: "/manufacturers/#{@manufacturer.id}/vehicles", method: :get, local: true do |form| %>
 <%= form.label :find_cars_under_price, 'Find Cars Under Price' %>
 <%= form.number_field :find_cars_under_price %>
 <br>
 <%= form.submit "Find Cars Under Price"  %>
+<% end %>
+
+<br>
+
+<%= form_with url: "/manufacturers/#{@manufacturer.id}/vehicles", method: :get, local: true do |form| %>
+<%= form.label :find_cars_over_price, 'Find Cars Over Price' %>
+<%= form.number_field :find_cars_over_price %>
+<br>
+<%= form.submit "Find Cars Over Price"  %>
 <% end %>
