@@ -63,9 +63,10 @@ RSpec.describe 'Manufacturer Vehicles Index' do
     visit "/manufacturers/#{honda.id}/vehicles"
 
     expect(page).to have_field('Find Cars Under Price')
+    expect(page).to have_field('Find Cars Over Price')
   end
 
-  it 'filters vehicles by price' do
+  it 'filters vehicles by price low' do
     honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
     civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
     del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: false)
@@ -79,5 +80,21 @@ RSpec.describe 'Manufacturer Vehicles Index' do
     expect(page).not_to have_content('CRV')
     expect(page).to have_content('Civic')
     expect(page).to have_content('Accord')
+  end
+
+  it 'filters vehicles by price high' do
+    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+    civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
+    del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: false)
+    crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: false)
+    accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
+
+    visit "/manufacturers/#{honda.id}/vehicles"
+    fill_in 'Find Cars Over Price', with: 3000
+
+    expect(page).to have_content('Del Sol')
+    expect(page).to have_content('CRV')
+    expect(page).not_to have_content('Civic')
+    expect(page).not_to have_content('Accord')
   end
 end
