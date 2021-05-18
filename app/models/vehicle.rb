@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Vehicle < ApplicationRecord
   belongs_to :manufacturer
 
@@ -5,6 +7,6 @@ class Vehicle < ApplicationRecord
   default_scopes {}
 
   def self.unsold
-    self.where("sold = false")
+    where('sold = false')
   end
 end

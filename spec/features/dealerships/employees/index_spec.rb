@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Dealerships Employees index' do
   it 'shows all of the employees for the dealership' do
     dealership = Dealership.create!(name: 'Test Dealership')
-    john = dealership.employees.create!(name: "John Smith",
+    john = dealership.employees.create!(name: 'John Smith',
                                         on_vacation: false,
                                         cars_sold: 27)
-    sally = dealership.employees.create!(name: "Sally Jones",
-                                        on_vacation: true,
-                                        cars_sold: 17)
+    sally = dealership.employees.create!(name: 'Sally Jones',
+                                         on_vacation: true,
+                                         cars_sold: 17)
 
     visit "/dealerships/#{dealership.id}/employees"
 
@@ -21,7 +23,7 @@ RSpec.describe 'Dealerships Employees index' do
 
     visit "/dealerships/#{dealership.id}/employees"
 
-    expect(page).to have_button("Create Employee")
+    expect(page).to have_button('Create Employee')
   end
 
   it 'has a button to add alphabetize employees' do
@@ -34,10 +36,10 @@ RSpec.describe 'Dealerships Employees index' do
 
   it 'can alphabetize employees' do
     dealership = Dealership.create!(name: 'Test Dealership')
-    sally = dealership.employees.create!(name: "Sally Jones",
+    sally = dealership.employees.create!(name: 'Sally Jones',
                                          on_vacation: true,
                                          cars_sold: 17)
-    john = dealership.employees.create!(name: "John Smith",
+    john = dealership.employees.create!(name: 'John Smith',
                                         on_vacation: false,
                                         cars_sold: 27)
     visit "/dealerships/#{dealership.id}/employees"
@@ -49,10 +51,10 @@ RSpec.describe 'Dealerships Employees index' do
 
   it 'has an update button for each employee' do
     dealership = Dealership.create!(name: 'Test Dealership')
-    sally = dealership.employees.create!(name: "Sally Jones",
+    sally = dealership.employees.create!(name: 'Sally Jones',
                                          on_vacation: true,
                                          cars_sold: 17)
-    john = dealership.employees.create!(name: "John Smith",
+    john = dealership.employees.create!(name: 'John Smith',
                                         on_vacation: false,
                                         cars_sold: 27)
     visit "/dealerships/#{dealership.id}/employees"
@@ -63,10 +65,10 @@ RSpec.describe 'Dealerships Employees index' do
 
   it 'redirects to and employee update page' do
     dealership = Dealership.create!(name: 'Test Dealership')
-    sally = dealership.employees.create!(name: "Sally Jones",
+    sally = dealership.employees.create!(name: 'Sally Jones',
                                          on_vacation: true,
                                          cars_sold: 17)
-    john = dealership.employees.create!(name: "John Smith",
+    john = dealership.employees.create!(name: 'John Smith',
                                         on_vacation: false,
                                         cars_sold: 27)
     visit "/dealerships/#{dealership.id}/employees"
@@ -78,10 +80,10 @@ RSpec.describe 'Dealerships Employees index' do
 
   it 'searches records for over a provided amount' do
     dealership = Dealership.create!(name: 'Test Dealership')
-    sally = dealership.employees.create!(name: "Sally Jones",
+    sally = dealership.employees.create!(name: 'Sally Jones',
                                          on_vacation: false,
                                          cars_sold: 105)
-    john = dealership.employees.create!(name: "John Smith",
+    john = dealership.employees.create!(name: 'John Smith',
                                         on_vacation: false,
                                         cars_sold: 27)
     visit "/dealerships/#{dealership.id}/employees"
@@ -91,7 +93,7 @@ RSpec.describe 'Dealerships Employees index' do
     click_button 'See Results'
 
     expect(current_path).to eq("/dealerships/#{dealership.id}/employees")
-    expect(page).to have_content("Sally Jones")
-    expect(page).to_not have_content("John Smith")
+    expect(page).to have_content('Sally Jones')
+    expect(page).to_not have_content('John Smith')
   end
 end

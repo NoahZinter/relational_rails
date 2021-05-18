@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Vehicle Index" do
+RSpec.describe 'Vehicle Index' do
   it 'shows an index of all vehicles' do
-    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
-    civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
-    crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: false)
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 28, is_open: true)
+    civic = honda.vehicles.create!(name: 'Civic', year: 2000, price: 2500, sold: false)
+    crv = honda.vehicles.create!(name: 'CRV', year: 2005, price: 4500, sold: false)
 
-   visit"/vehicles"
+    visit '/vehicles'
 
     expect(page).to have_content(civic.name)
     expect(page).to have_content(civic.year)
@@ -19,9 +21,9 @@ RSpec.describe "Vehicle Index" do
   end
 
   it 'only shows vehicles which arent sold' do
-    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
-    civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
-    crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 28, is_open: true)
+    civic = honda.vehicles.create!(name: 'Civic', year: 2000, price: 2500, sold: false)
+    crv = honda.vehicles.create!(name: 'CRV', year: 2005, price: 4500, sold: true)
 
     visit '/vehicles'
 
@@ -36,11 +38,11 @@ RSpec.describe "Vehicle Index" do
   end
 
   it 'can handle any order of sold vehicles' do
-    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
-    civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)
-    crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
-    accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
-    del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: true)
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 28, is_open: true)
+    civic = honda.vehicles.create!(name: 'Civic', year: 2000, price: 2500, sold: true)
+    crv = honda.vehicles.create!(name: 'CRV', year: 2005, price: 4500, sold: true)
+    accord = honda.vehicles.create!(name: 'Accord', year: 2000, price: 2500, sold: false)
+    del_sol = honda.vehicles.create!(name: 'Del Sol', year: 2005, price: 4500, sold: true)
 
     visit '/vehicles'
 
@@ -51,11 +53,11 @@ RSpec.describe "Vehicle Index" do
   end
 
   it 'contains a link to edit each vehicle' do
-    honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
-    honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: false)
-    honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: false)
-    honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
-    honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: false)
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 28, is_open: true)
+    honda.vehicles.create!(name: 'Civic', year: 2000, price: 2500, sold: false)
+    honda.vehicles.create!(name: 'CRV', year: 2005, price: 4500, sold: false)
+    honda.vehicles.create!(name: 'Accord', year: 2000, price: 2500, sold: false)
+    honda.vehicles.create!(name: 'Del Sol', year: 2005, price: 4500, sold: false)
 
     visit '/vehicles'
 
