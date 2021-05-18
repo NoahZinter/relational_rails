@@ -14,6 +14,7 @@ class Dealership < ApplicationRecord
   end
 
   def min_cars_sold(min)
-    employees.where(cars_sold: min.to_i..Float::INFINITY)
+    employees.where("cars_sold > ?", min)
+    # employees.where(cars_sold: min.to_i..Float::INFINITY)
   end
 end
