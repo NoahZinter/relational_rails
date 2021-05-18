@@ -41,7 +41,7 @@ RSpec.describe Manufacturer do
       end
     end
 
-    describe '.alphabetize' do
+    describe 'alphabetize' do
       it 'orders vehicles by name' do
         honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
         honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)
@@ -53,6 +53,38 @@ RSpec.describe Manufacturer do
 
         expect(alphabetized.first.name).to eq 'Accord'
         expect(alphabetized.last.name).to eq "Del Sol"
+      end
+    end
+
+    describe 'over_price' do
+      it 'selects vehicles over a price threshold' do
+        honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+        civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)
+        crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
+        accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
+        del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: true)
+
+        high = honda.over_price(3000)
+
+        expect(high).to eq ([crv, del_sol])
+        expect(high.include?(civic)).to eq false
+        expect(high.include?(accord)).to eq false
+      end
+    end
+
+    describe 'under_price' do
+      it 'selects vehicles under a price threshold' do
+        honda = Manufacturer.create!(name:"Honda", production_capacity: 28, is_open: true)
+        civic = honda.vehicles.create!(name:"Civic", year:2000, price:2500, sold: true)
+        crv = honda.vehicles.create!(name:"CRV", year:2005, price:4500, sold: true)
+        accord = honda.vehicles.create!(name:"Accord", year:2000, price:2500, sold: false)
+        del_sol = honda.vehicles.create!(name:"Del Sol", year:2005, price:4500, sold: true)
+
+        low = honda.under_price(3000)
+
+        expect(low).to eq ([civic, accord])
+        expect(low.include?(crv)).to eq false
+        expect(low.include?(del_sol)).to eq false
       end
     end
   end
