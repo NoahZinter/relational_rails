@@ -1,7 +1,7 @@
 <%= form_with url: "/employees/#{@employee.id}", method: :patch, local: true do |form| %>
   <br>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, value: @employee.name %>
   <br>
   <br>
   <%= form.label :on_vacation? %>
@@ -9,7 +9,7 @@
   <br>
   <br>
   <%= form.label :cars_sold %>
-  <%= form.number_field :cars_sold %>
+  <%= form.number_field :cars_sold, value: @employee.cars_sold %>
   <br>
   <br>
   <%= form.submit 'Update Employee' %>
