@@ -4,7 +4,6 @@ class Manufacturer < ApplicationRecord
   def vehicle_count
     vehicles.count
   end
-  
 
   def self.default_scope
     order("created_at DESC")
