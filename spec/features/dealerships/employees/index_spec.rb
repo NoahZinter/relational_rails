@@ -76,7 +76,7 @@ RSpec.describe 'Dealerships Employees index' do
     expect(page).to have_current_path("/employees/#{john.id}/edit")
   end
 
-  xit 'searches records for over a provided amount' do
+  it 'searches records for over a provided amount' do
     dealership = Dealership.create!(name: 'Test Dealership')
     sally = dealership.employees.create!(name: "Sally Jones",
                                          on_vacation: false,
