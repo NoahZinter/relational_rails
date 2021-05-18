@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe 'Manufacturer New' do
   it 'contains a form for creating new manufacturer' do
@@ -7,11 +9,11 @@ RSpec.describe 'Manufacturer New' do
     expect(page).to have_field('Name')
     expect(page).to have_field('Production capacity')
 
-      within("select#is_open") do
-        %w(true false).each do |option|
-          expect(find("option[value=#{option}]").text).to eq(option)
-        end
+    within('select#is_open') do
+      %w[true false].each do |option|
+        expect(find("option[value=#{option}]").text).to eq(option)
       end
+    end
   end
 
   it 'creates new manufacturer and navigates to index' do

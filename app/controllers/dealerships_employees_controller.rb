@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class DealershipsEmployeesController < ApplicationController
   def index
     @dealership = Dealership.find(params[:id])
     @employees = @dealership.employees
-    if params[:alphabetize]
-      @employees = @dealership.alphabetize
-    end
+    @employees = @dealership.alphabetize if params[:alphabetize]
     if params[:min_cars_sold]
       min = params[:min_cars_sold]
       @employees = @dealership.min_cars_sold(min)
@@ -24,9 +24,9 @@ class DealershipsEmployeesController < ApplicationController
 
   def employee_params
     params.permit(
-                  :name,
-                  :on_vacation,
-                  :cars_sold
-                 )
+      :name,
+      :on_vacation,
+      :cars_sold
+    )
   end
 end

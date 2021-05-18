@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Dealership < ApplicationRecord
   has_many :employees, dependent: :destroy
 
@@ -6,7 +8,7 @@ class Dealership < ApplicationRecord
   end
 
   def self.default_scope
-    order("created_at DESC")
+    order('created_at DESC')
   end
 
   def alphabetize

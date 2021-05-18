@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'New Dealership' do
@@ -5,7 +7,7 @@ RSpec.describe 'New Dealership' do
     it 'links to the new page from the dealerships index' do
       visit '/dealerships'
 
-      click_link("New Dealership")
+      click_link('New Dealership')
       expect(current_path).to eq(('/dealerships/new'))
     end
   end
@@ -15,8 +17,8 @@ RSpec.describe 'New Dealership' do
 
     fill_in('name', with: "Bob's Auto")
     fill_in('max_car_capacity', with: 654)
-    within("select#is_full") do
-      %w(true false).each do |option|
+    within('select#is_full') do
+      %w[true false].each do |option|
         expect(find("option[value=#{option}]").text).to eq(option)
       end
     end

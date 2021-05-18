@@ -1,5 +1,6 @@
-class ManufacturersController < ApplicationController
+# frozen_string_literal: true
 
+class ManufacturersController < ApplicationController
   def index
     @manufacturers = Manufacturer.all
   end
@@ -8,8 +9,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.find(params[:id])
   end
 
-  def new
-  end
+  def new; end
 
   def create
     Manufacturer.create(manufacturer_params)

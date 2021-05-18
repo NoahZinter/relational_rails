@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EmployeesController < ApplicationController
   def index
     @employees = Employee.where(on_vacation: false)
@@ -23,13 +25,13 @@ class EmployeesController < ApplicationController
     redirect_to '/employees'
   end
 
-private
+  private
 
   def employee_params
     params.permit(
-                  :name,
-                  :on_vacation,
-                  :cars_sold
-                 )
+      :name,
+      :on_vacation,
+      :cars_sold
+    )
   end
 end

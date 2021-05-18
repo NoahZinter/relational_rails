@@ -2,8 +2,8 @@
 
 <% @vehicles.each do |vehicle| %>
 <h3><a href="vehicles/<%= vehicle.id %>"><%= vehicle.name %></a></h3>
-<p>Vehicle Year:<%= vehicle.year %></p>
-<p>Vehicle Price:<%= vehicle.price %></p>
+<p>Vehicle Year: <%= vehicle.year %></p>
+<p>Vehicle Price: $<%= vehicle.price %></p>
 <p>Has it been sold? <%= vehicle.sold %></p>
 <p> <%= button_to "Edit This #{vehicle.name}",
   "/vehicles/#{vehicle.id}/edit", method: :get %>
