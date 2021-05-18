@@ -14,10 +14,10 @@ class Manufacturer < ApplicationRecord
   end
 
   def over_price(limit)
-    vehicles.where("price > #{limit}")
+    vehicles.where("price > ?", limit)
   end
 
   def under_price(limit)
-    vehicles.where("price < #{limit}")
+    vehicles.where("price < ?", limit)
   end
 end
