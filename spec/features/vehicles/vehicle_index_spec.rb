@@ -66,4 +66,19 @@ RSpec.describe 'Vehicle Index' do
     expect(page).to have_button('Edit This Accord')
     expect(page).to have_button('Edit This Del Sol')
   end
+
+  it 'contains a link to delete each vehicle' do
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 28, is_open: true)
+    honda.vehicles.create!(name: 'Civic', year: 2000, price: 2500, sold: false)
+    honda.vehicles.create!(name: 'CRV', year: 2005, price: 4500, sold: false)
+    honda.vehicles.create!(name: 'Accord', year: 2000, price: 2500, sold: false)
+    honda.vehicles.create!(name: 'Del Sol', year: 2005, price: 4500, sold: false)
+
+    visit '/vehicles'
+
+    expect(page).to have_button('Delete This Civic')
+    expect(page).to have_button('Delete This CRV')
+    expect(page).to have_button('Delete This Accord')
+    expect(page).to have_button('Delete This Del Sol')
+  end
 end
