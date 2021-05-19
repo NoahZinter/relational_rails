@@ -70,12 +70,12 @@ RSpec.describe 'Manufacturer Show' do
 
   it 'redirects to index when deleted' do
     chevy = Manufacturer.create!(name: 'Chevy', production_capacity: 40, is_open: true)
-    honda = Manufacturer.create!(name: 'Honda', production_capacity: 80, is_open:true)
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 80, is_open: true)
 
     visit "/manufacturers/#{chevy.id}"
-    click_button "Delete Manufacturer Chevy"
+    click_button 'Delete Manufacturer Chevy'
 
-    expect(current_path).to eq("/manufacturers")
+    expect(current_path).to eq('/manufacturers')
     expect(page).not_to have_content('Chevy')
   end
 end

@@ -92,7 +92,7 @@ RSpec.describe 'Vehicle Index' do
     visit '/vehicles'
     click_button('Delete This Civic')
 
-    expect(current_path).to eq "/vehicles"
+    expect(current_path).to eq '/vehicles'
     expect(page).not_to have_content('Civic')
   end
 end
