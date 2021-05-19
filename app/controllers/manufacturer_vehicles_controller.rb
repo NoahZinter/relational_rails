@@ -6,12 +6,10 @@ class ManufacturerVehiclesController < ApplicationController
     @vehicles = @manufacturer.vehicles
     @vehicles = @manufacturer.alphabetize if params[:alphabetize]
     if params[:find_cars_under_price]
-      limit = params[:find_cars_under_price].to_i
-      @vehicles = @manufacturer.under_price(limit)
+      @vehicles = @manufacturer.under_price(params[:find_cars_under_price])
     end
     if params[:find_cars_over_price]
-      limit = params[:find_cars_over_price].to_i
-      @vehicles = @manufacturer.over_price(limit)
+      @vehicles = @manufacturer.over_price(params[:find_cars_over_price])
     end
   end
 
