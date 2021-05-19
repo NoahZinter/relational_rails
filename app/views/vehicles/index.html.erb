@@ -6,5 +6,7 @@
 <p>Vehicle Price: $<%= vehicle.price %></p>
 <p>Has it been sold? <%= vehicle.sold %></p>
 <p> <%= button_to "Edit This #{vehicle.name}",
-  "/vehicles/#{vehicle.id}/edit", method: :get %>
+  "/vehicles/#{vehicle.id}/edit", method: :get %> </p>
+<p> <%= button_to "Delete This #{vehicle.name}",
+  "/vehicles/#{vehicle.id}", method: :delete %> </p>
 <% end %>

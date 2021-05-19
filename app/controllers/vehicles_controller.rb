@@ -11,6 +11,10 @@ class VehiclesController < ApplicationController
 
   def edit
     @vehicle = Vehicle.find(params[:id])
+    @name = @vehicle.name
+    @year = @vehicle.year
+    @price = @vehicle.price
+    @sold = @vehicle.sold
   end
 
   def vehicle_params

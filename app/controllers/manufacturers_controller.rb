@@ -22,6 +22,9 @@ class ManufacturersController < ApplicationController
 
   def edit
     @manufacturer = Manufacturer.find(params[:id])
+    @name = @manufacturer.name
+    @production_capacity = @manufacturer.production_capacity
+    @is_open = @manufacturer.is_open
   end
 
   def update

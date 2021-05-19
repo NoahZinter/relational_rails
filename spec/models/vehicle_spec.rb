@@ -15,6 +15,7 @@ RSpec.describe Vehicle do
         del_sol = honda.vehicles.create!(name: 'Del Sol', year: 2005, price: 4500, sold: true)
 
         expect(Vehicle.unsold).to eq([civic, accord])
+        expect(Vehicle.unsold.include?(crv)).to eq false
       end
     end
   end

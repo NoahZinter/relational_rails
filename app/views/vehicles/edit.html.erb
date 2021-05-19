@@ -2,16 +2,16 @@
 
 <%= form_with url:"/vehicles/#{@vehicle.id}", method: :patch, local: true do |form| %>
 <%= form.label :name %>
-<%= form.text_field :name %>
+<%= form.text_field :name, :value => @name %>
 <br>
 <%= form.label :year %>
-<%= form.number_field :year %>
+<%= form.number_field :year, :value => @year %>
 <br>
 <%= form.label :price %>
-<%= form.number_field :price %>
+<%= form.number_field :price, :value => @price %>
 <br>
 <%= form.label :has_it_been_sold_yet? %>
-<%= form.select :sold, ['false', 'true'] %>
+<%= form.select :sold, ['false', 'true'], :value => @sold %>
 <br>
 <%= form.submit "Edit Vehicle" %>
 <% end %>
