@@ -2,13 +2,13 @@
 
 <%= form_with url:"/manufacturers/#{@manufacturer.id}", method: :patch, local: true do |form| %>
 <%= form.label :name %>
-<%= form.text_field :name %>
+<%= form.text_field :name, :value => @name %>
 <br>
-<%= form.label :production_capacity%>
-<%= form.number_field :production_capacity%>
+<%= form.label :production_capacity %>
+<%= form.number_field :production_capacity, :value => @production_capacity %>
 <br>
 <%= form.label :is_it_open? %>
-<%= form.select :is_open, ['true', 'false'] %>
+<%= form.select :is_open, ['true', 'false'], :value => @is_open %>
 <br>
 <%= form.submit "Edit Manufacturer" %>
 <% end %>
