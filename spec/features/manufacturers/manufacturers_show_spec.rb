@@ -59,4 +59,23 @@ RSpec.describe 'Manufacturer Show' do
 
     expect(current_path).to eq("/manufacturers/#{chevy.id}/edit")
   end
+
+  it 'includes a link to delete the manufacturer' do
+    chevy = Manufacturer.create!(name: 'Chevy', production_capacity: 40, is_open: true)
+
+    visit "/manufacturers/#{chevy.id}"
+
+    expect(page).to have_button('Delete Manufacturer Chevy:')
+  end
+
+  it 'redirects to index when deleted' do
+    chevy = Manufacturer.create!(name: 'Chevy', production_capacity: 40, is_open: true)
+    honda = Manufacturer.create!(name: 'Honda', production_capacity: 80, is_open:true)
+
+    visit "/manufacturers/#{chevy.id}"
+    click_button "Delete Manufacturer Chevy"
+
+    expect(current_path).to eq("/manufacturers")
+    expect(page).not_to have_content('Chevy')
+  end
 end

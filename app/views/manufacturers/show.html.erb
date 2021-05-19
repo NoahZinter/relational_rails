@@ -9,3 +9,6 @@
 <br>
 <br>
 <%= button_to "Edit Manufacturer #{@manufacturer.name}:", "/manufacturers/#{@manufacturer.id}/edit", method: :get %>
+<br>
+<p><%= button_to "Delete Manufacturer #{@manufacturer.name}:",
+  "/manufacturers/#{@manufacturer.id}", method: :delete %></p>
