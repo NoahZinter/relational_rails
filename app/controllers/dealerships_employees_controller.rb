@@ -6,8 +6,7 @@ class DealershipsEmployeesController < ApplicationController
     @employees = @dealership.employees
     @employees = @dealership.alphabetize if params[:alphabetize]
     if params[:min_cars_sold]
-      min = params[:min_cars_sold]
-      @employees = @dealership.min_cars_sold(min)
+      @employees = @dealership.min_cars_sold(params[:min_cars_sold])
     end
   end
 
